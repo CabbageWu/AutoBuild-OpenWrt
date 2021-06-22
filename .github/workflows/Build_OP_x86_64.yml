@@ -1,70 +1,3 @@
-CONFIG_TARGET_x86=y
-CONFIG_TARGET_x86_64=y
-CONFIG_TARGET_x86_64_DEVICE_generic=y
-CONFIG_ARIA2_BITTORRENT=y
-CONFIG_ARIA2_NOXML=y
-CONFIG_ARIA2_OPENSSL=y
-CONFIG_ARIA2_WEBSOCKET=y
-CONFIG_PACKAGE_aria2=y
-CONFIG_PACKAGE_ariang=y
-CONFIG_PACKAGE_frpc=y
-CONFIG_PACKAGE_hd-idle=y
-CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
-CONFIG_PACKAGE_iptables-mod-ipopt=y
-CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
-CONFIG_PACKAGE_kmod-ipt-ipopt=y
-CONFIG_PACKAGE_libbz2=y
-CONFIG_PACKAGE_libdb47=y
-CONFIG_PACKAGE_libffi=y
-CONFIG_PACKAGE_libgdbm=y
-CONFIG_PACKAGE_liblzma=y
-CONFIG_PACKAGE_libpython3=y
-CONFIG_PACKAGE_libsqlite3=y
-CONFIG_PACKAGE_luci-app-aria2=y
-CONFIG_PACKAGE_luci-app-frpc=y
-CONFIG_PACKAGE_luci-app-hd-idle=y
-CONFIG_PACKAGE_luci-app-mwan3=y
-CONFIG_PACKAGE_luci-app-mwan3helper=y
-CONFIG_PACKAGE_luci-app-shadowsocks-libev=y
-CONFIG_PACKAGE_luci-app-ssrserver-python=y
-CONFIG_PACKAGE_luci-i18n-aria2-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-frpc-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-mwan3helper-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-ssrserver-python-zh-cn=y
-CONFIG_PACKAGE_mwan3=y
-CONFIG_PACKAGE_nano=y
-CONFIG_PACKAGE_python3=y
-CONFIG_PACKAGE_python3-asyncio=y
-CONFIG_PACKAGE_python3-base=y
-CONFIG_PACKAGE_python3-cgi=y
-CONFIG_PACKAGE_python3-cgitb=y
-CONFIG_PACKAGE_python3-codecs=y
-CONFIG_PACKAGE_python3-ctypes=y
-CONFIG_PACKAGE_python3-dbm=y
-CONFIG_PACKAGE_python3-decimal=y
-CONFIG_PACKAGE_python3-distutils=y
-CONFIG_PACKAGE_python3-email=y
-CONFIG_PACKAGE_python3-gdbm=y
-CONFIG_PACKAGE_python3-light=y
-CONFIG_PACKAGE_python3-logging=y
-CONFIG_PACKAGE_python3-lzma=y
-CONFIG_PACKAGE_python3-multiprocessing=y
-CONFIG_PACKAGE_python3-ncurses=y
-CONFIG_PACKAGE_python3-openssl=y
-CONFIG_PACKAGE_python3-pydoc=y
-CONFIG_PACKAGE_python3-readline=y
-CONFIG_PACKAGE_python3-sqlite3=y
-CONFIG_PACKAGE_python3-unittest=y
-CONFIG_PACKAGE_python3-urllib=y
-CONFIG_PACKAGE_python3-xml=y
-CONFIG_SQLITE3_DYNAMIC_EXTENSIONS=y
-CONFIG_SQLITE3_FTS3=y
-CONFIG_SQLITE3_FTS4=y
-CONFIG_SQLITE3_FTS5=y
-CONFIG_SQLITE3_JSON1=y
-CONFIG_SQLITE3_RTREE=y
 #=================================================
 # Description: Build OpenWrt using GitHub Actions
 # Lisence: MIT
@@ -140,11 +73,11 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    #- name: Import external feeds
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-    #    git clone "your_github_link" package/"your_folder_name"      
+    - name: Import external feeds
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
+        git clone https://github.com/CabbageWu/lede package/bin     
 
     - name: Configuration Customization - Build_x86_64
       env:
